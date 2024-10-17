@@ -1,0 +1,38 @@
+import threading
+import time
+
+#def walk_dog(first, last):
+#   time.sleep(8)
+#   print(f"You finish walking {first} {last}")
+   
+def wake_up():
+   time.sleep(8)
+   print("Get up In the morning")
+
+def get_up():
+   time.sleep(2)
+   print("Get ready to go to school")
+
+def get_back():
+   time.sleep(4)
+   print("After school get back to home")
+
+#chore1 = threading.Thread(target=walk_dog, args=("Scooby", "Doo"))
+#chore1.start()
+
+task1 = threading.Thread(target=wake_up)
+task1.start()
+
+task2 = threading.Thread(target=get_up)
+task2.start()
+
+task3 = threading.Thread(target=get_back)
+task3.start()
+
+#join() ensures that all tasks are completed before proceeding
+
+task1.join()
+task2.join()
+task3.join()
+
+print("All chores are complete!")
